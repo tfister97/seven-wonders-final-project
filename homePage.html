@@ -1,0 +1,173 @@
+<html>
+
+<head>
+  <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+  <script src="script.js"></script>
+  <link rel="index.html">
+</head>
+
+<body>
+  <a-scene>
+    <a-assets>
+      <img id="earth" src="images/earth.jpg">
+      <img id="greatWallTexture" src="images/greatWallTexture.jpg">
+      <img id="colosseumTexture" src="images/colosseum2.PNG">
+      <img id="petraTexture" src="images/petraTexture.jpg">
+      <a-asset-item id="chichenItzamtl" src="images/pyramid.mtl"></a-asset-item>
+      <a-asset-item id="chichenItzaobj" src="images/pyramid.obj"></a-asset-item>
+      <a-asset-item id="tajMahalmtl" src="images/castle-part-one.mtl"></a-asset-item>
+      <a-asset-item id="tajMahalobj" src="images/castle-part-one.obj"></a-asset-item>
+      <a-asset-item id="machuPicchumtl" src="images/aztec-temple.mtl"></a-asset-item>
+      <a-asset-item id="machuPicchuobj" src="images/aztec-temple.obj"></a-asset-item>
+      <a-asset-item id="christRedeemermtl" src="images/christ-the-redeemer.mtl"></a-asset-item>
+      <a-asset-item id="christRedeemerobj" src="images/christ-the-redeemer.obj"></a-asset-item>
+      <a-sky material="src: #earth"></a-sky>
+      <img id="chichenItza360" src="chichen.jpg">
+      <img id="greatWall360" src="greatwall.jpg">
+      <img id="taj360" src="taj.jpg">
+      <img id="machu360" src="machu.jpg">
+      <img id="col360" src="col.jpg">
+      <img id="petra360" src="petra2.jpg">
+      <img id="ctr360" src="images/theredeemer.jpg">
+      <img id="back" src="back.jpg">
+      <img id="mexicoFlag" src="http://img.freeflagicons.com/thumb/square_icon/mexico/mexico_640.png">
+
+    </a-assets>
+    <a-entity id="cameraCursor" position="0 0 0">
+      <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera>
+    </a-entity>
+
+
+
+    <a-box rotation=" 0 65 0" id="backBox" visible="false" color="#99ffdd" height="1" width="1" depth="1" position="-4 2 -2" onclick="goBack()">
+      <a-text id="back" value="Go Back" position="-0.43 0 0.584" color="black">
+      </a-text>
+
+    </a-box>
+    </a-entity>
+
+
+    <a-entity id="homePage" visible=true>
+      <a-sky id="earthSky" src="#earth"></a-sky>
+      <!--Icons-->
+      <a-entity obj-model="obj: #chichenItzaobj; mtl: #chichenItzamtl" position="0 110 300" scale="23 23 23" id="cIobj"></a-entity>
+
+      <a-box material="src: #greatWallTexture" width="2" id="greatWallIcon" height="1.7" depth="17" position="60 220 -250" scale="10 10 10" rotation="0 90 40"></a-box>
+
+
+      <a-entity obj-model="obj: #tajMahalobj; mtl: #tajMahalmtl" id="tajMahalIcon" position="-75 160 -250" scale=".325 .325 .325">
+
+        <a-cylinder material="src: #colosseumTexture" height="2.3" radius="3.3" position="-3250 2600 -250" scale="140 140 140" rotation="0 0 -30" id="colosseumIcon"></a-cylinder>
+      </a-entity>
+
+      <a-entity obj-model="obj: #machuPicchuobj; mtl: #machuPicchumtl" position="-250 -150 600" scale="1.2 1.2 1.2" rotation="0 -15 0" id="macchuPicchuIcon"></a-entity>
+
+      <a-entity obj-model="obj: #christRedeemerobj; mtl: #christRedeemermtl" position="-550 -410 600" rotation="10 -30 0" visible=t rue id="CTRicon" scale="25.2 25.2 25.2 "></a-entity>
+
+      <a-box material="src: #petraTexture" width="2.3" height="3.8" depth="2.3" position="-300 250 -250" scale="26 26 26" rotation="30 45 0" id="petraIcon"></a-box>
+
+      <!--Box Links-->
+      <a-box color="#d11aff" height="1.5" width="10" depth="1" onclick="showChichen()" position="-12 70 300" rotation="15 0 0" scale="10 10 10" id="travelToChechen" visible="true">
+       <a-text id="chichenItzaText" value="Chichen Itza" position="4.754 -0.576 -1.384" scale="0.75 0.75 0.8" color="black" width="50" height="50" rotation="0 180 0">
+        </a-text>
+      </a-box>
+ 
+
+      <!--<a-box color="#FFA233" height="1.5" width="10" id="travelToMacchu" depth="1" onclick="showMachul()" position="-133 -105 300" rotation="15 -15 0" scale="13 13 13"></a-box>-->
+
+      <a-box color="#d11aff" height="1.5" width="10" id="travelToGreatWall" depth="1" onclick="showGreatWall()" position="60 190 -250" rotation="30 0 0" scale="10 10 10">
+        <a-text id="greatWallofChinaText" value="Great Wall of China" position="-4.937 -0.049 1.318" scale="0.5 0.5 0.5" color="black" width="50" height="50">
+        </a-text>
+      </a-box>
+
+      <a-box color="#cc7a00" height="1.5" width="10" id="travelToTaj" depth="1" onclick="showTajMahal()" position="-65 100 -250" rotation="15 0 0" visible=true scale="10 10 10">
+        <a-text id="tajMahalText" value="Taj Mahal" position="-3.708 -0.049 1.318" scale="0.75 0.75 0.75" color="black" width="50" height="50">
+        </a-text>
+      </a-box>
+
+      <a-box color="#ffa31a" id="travelToCol" height="1.5" width="10" depth="1" rotation="15 80 0" visible=true position="-710 525 -200" scale="25 25 25" onclick="showCol()">
+        <a-text id="colosseumText" value="The Colosseum" position="-4.653 -1.433 4.33" scale="0.55 0.55 0.55" color="black" width="50" height="50">
+        </a-text>
+      </a-box>
+
+      <a-box color="#ffa31a" height="1.5" width="10" id="travelToMacchu" depth="1" onclick="showMachu()" visible="true" position="-133 -105 300" rotation="15 -15 0" scale="13 13 13">
+        <a-text id="machuPicchuText" value="Machu Picchu" text="" position="4.799 0.032 -0.863" scale="0.65 0.65 0.65" color="black" width="50" height="50" rotation="0 180 0" data-cloud9-id="127">
+        </a-text>
+        </a-box>
+
+      <a-box color="#d11aff" visible=true height="1.5" width="10" depth="1" onclick="showCTR()" position="-285 -230 300" rotation="15 -15 5" scale="13 13 13" id="travelToCTR">
+        <a-text id="christRedeemerText" value="Christ the Redeemer" position="5.039 0.117 -0.79" scale="0.475 0.475 0.5" color="black" width="50" height="50" rotation="0 180 0">
+        </a-text>
+      </a-box>
+
+      <a-box id="travelToPetra" color="#d11aff" height="1.5" width="10" depth="1" onclick="showPetra()" position="-240 140 -200" visible=true rotation="15 40 0" scale="10 10 10" id="travelToPetra">
+        <a-text id="petraText" value="Petra" position="-1.768 -0.445 3.872" scale="0.8 0.8 0.8" color="black" width="50" height="50">
+        </a-text>
+      </a-box>
+
+    </a-entity>
+
+    <!--CHICHEN ITZA SCENE-->
+    <a-entity visible=false id="chichenItza">
+      <!--<a-entity sound="src: #chichenItzaMusic" id = "sound"></a-entity>-->
+      </a-assets>
+      <a-sky id="chichenItzaSky" src="#chichenItza360"></a-sky>
+      <a-text id="chichenItzaText" value="Chichen Itza, also known as the Temple of Kukulcan, is a mesoamerican step pyramid locate in a Mexican state of Yucatan. It Consists of square terraces with stairways up the 4 sides to the temple. On the top it has plumed sides with serpents down the northern balustrade.It was made around 5B18, and built by a pre-Columbian Maya civilization between the 9th and 12th centuries CE. Each side has 91 steps, giving a total of 365 stairs including the temple platform."
+        color="white" position="-8 3 -12" scale="1.5 1.5 1.5">
+      </a-text>
+    </a-entity>
+
+    <!--GREAT WALL SCENE-->
+    <a-entity id="greatWall" visible="false">
+      <a-sky id="greatWallSky" src="#greatWall360"></a-sky>
+      <a-text value="The Great Wall of China is made of stone, brick, tamped earth, wood, and other materials. The wall runs from east-to-west across northern borders of China to protect Chinese states and empires against invasions. Building of the wall started in the 7th century and overtime grew and grew to finally be known as the Great Wall. It originated from the Ming dynasty. Other purposes of the Great Wall included: border controls, encouragement of trade along silk road. Made up of 3,889 sections of actual wall and 223 miles of trenches along with 1,387 miles of natural barriers. All in all, about 13,171 miles long." color="white" position="-3 3.5 -3" scale="1.5 1.5 1.5" rotation= "20 6 5">
+      </a-text>
+    </a-entity>
+
+    <!--TAJ MAHAL SCENE-->
+    <a-entity id="tajMahal" visible="false">
+      <a-sky id="tajSky" src="#taj360"></a-sky>
+      <a-text value="The Taj Mahal is an ivory white marble mausoleum on the southbank of yuma river in Agra, India. Commissioned in 1632 by emperor Shah Jahan to house his favorite wife's tomb, Mumtaz Mahal. The tomb is the centerpiece of the Taj Mahal. The mausoleum,which is part of the Taj Mahal, was completed in 1653 at 32 million rupees which is approximately $827 Million dollars. It Included 20,000 artisans to help build and make the famous structure. Visiting the Taj Mahal can be tricky, so make sure to get a ticket way before hand, and to not show up on a friday because it’s closed!" color="white" position="-1 3.5 -3" scale="1.5 1.5 1.5" rotation= "0 6 1">
+      </a-text>
+    </a-entity>
+
+    <!--COLOSSEUM SCENE-->
+    <a-entity visible=false id="colosseum">
+      <a-sky id="colSky" src="#col360"></a-sky>
+      <a-text color="white" position="-0 3 -7" scale="1.0 1.0 1.0" rotation="-20 6 0" id="chichenItzaText" value="The colosseum also known as the Flavian Amphitheatre, is an oval amphitheatre in the centre of the city of Rome, Italy. It is made up of concrete and sand, and is the largest amphitheater ever built. It began being built under emperor vespasian in AD 72 and finished in AD 80 under Titus. The colosseum is shown on the 5-cent euro coin. The building was constructed under the Flavian dynasty. The colosseum could hold 50,000 - 80,000 people. The average audience was 65,000 where they would watch famous battles and executions. Fun fact: Each good friday the pope leads a torchlit “way of the cross” procession that starts in the area around colosseum.">
+      </a-text>
+    </a-entity>
+
+    <!--MACHU PICCHU SCENE-->
+    <a-entity id="machuPicchu" visible="false">
+      <a-sky id="machuSky" src="#machu360"></a-sky>
+      <!--<a-box id="peruFlag" src="peru.jpg" width="3" height="100" depth="2" position="10 2 2"></a-box>-->
+      <a-text value="Machu Picchu was made in the 15th century, and is located on a mountain range 7,970 feet above sea level. It lies in the Cusco region, Urubamba Province. Some archaeologists believe that it was built as an estate for the Inca emperor, Pachacuti, during 1438-1472. This is known as the 'lost city of the Incas.' It remained unknown to lots until Hiram Bingham brought it to international attention in 1911. Built with polished dry stone walls, it has 3 primary structures, the Inti Watana, the temple of the sun, and the room of the three windows. 30% of machu picchu has been restored and is still continuing to be restored till this day."
+        color="white" position="-0 3 -7" scale="1.0 1.0 1.0">
+      </a-text>
+    </a-entity>
+
+    <!--CHRIST THE REDEEMER SCENE-->
+    <a-entity id="christRedeemer" visible="false">
+      <a-sky id="CTRsky" src="#ctr360"></a-sky>
+      <a-text value="Finished in 1931, Christ the Redeemer is a statue of Jesus Christ in Rio de Janeiro, Brazil built by Paul Landowski, Heitor da Silva Costa, and Albert Caquot. The face itself was created by Gheorghe Leonida. It is 98 ft tall with a 26 ft pedestal. Its arms are 92 ft wide. The statue is stays at the peak of the 2,300 ft Corcovado mountain in the Tijuca Forest National Park. It is made of concrete and soapstone." color="white" position="-0 3 -7" scale="1.0 1.0 1.0">
+      </a-text>
+    </a-entity>
+
+    <!--PETRA SCENE-->
+
+
+    <a-entity id="petra" visible="false">
+      <a-sky id="petraSky" src="#petra360"></a-sky>
+      <a-text value="Petra, originally known as Ramu, is located in a historical archaeological city in southern Jordan. Petra is Jordan's most visited tourist destination. Petra is also nicknamed the rose city because of the color of the stone that she was carved out of. It was established in 312 BC as the capital city of the arab nabataeans. The city was also well known as a massive trading hub. Fun fact: The Nabataeans are known for their talent in carving certain structures into solid rock. Petra is located on the slope of Jebel Al-Madhbah in a basin near the mountains. Petra has been a World Heritage Site since 1985."
+        color="white" position="-2 3 -7" scale="1.5 1.5 1.5">
+      </a-text>
+    </a-entity>
+
+  </a-scene>
+
+</body>
+
+</html>
