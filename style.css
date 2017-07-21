@@ -1,0 +1,67 @@
+#bodyMain
+{
+    /*background-color:#29D9C2;*/
+    font-family: Georgia;
+    background-color:#d4f7f3;
+}
+#mainTitle
+{
+    font-family: Georgia;
+    font-size: 100pt;
+    text-align:center;
+    color: #2F2933;
+}
+#jumbo
+{
+    height:500pt;
+    /*background-color:#2F2933;*/
+    background-image: url("https://s-media-cache-ak0.pinimg.com/originals/14/c6/28/14c628fe0c3e119feb376a14d11060aa.png");
+    padding-top: 10%;
+    padding-bottom: 10%;
+    background-position: center; 
+     opacity: 0.9;
+     background-color: "white";
+     border-bottom: dotted #2F2933 10pt;
+}
+.stamps
+{
+    height: 125pt;
+    border: solid white 5pt;
+    opacity: 0.9;
+}
+img:hover
+{
+    background-color:"blue";
+}
+#passport
+{
+    background-color:#d4f7f3;
+}
+#des
+{
+    padding: 2%;
+    color:"white";
+    text-align:center;
+    background-color:#2F2933;
+}
+#buttonStart
+{
+   height:"100pt";
+   background-color:blue;
+}
+.container
+{
+    background-color:"white";
+}
+#bottom
+{
+    background-color: "black";
+}
+#startAdventure
+{
+    width:300pt;
+    
+    font-size:25pt;
+    text-align:center;
+    background-color:"blue";
+}
